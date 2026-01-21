@@ -1,0 +1,53 @@
+# JavaScript video notes
+
+- To learn what the core syntax of JS is
+- JS powers the web, so it is important to learn it. Is used everywhere in the web. Can be used to make almost anything.
+- JS client=browser for UI. getElementById = id from HTML. JS server=some servise. node.js is important.
+- VSC is JS. Important extensions: ESLint and Prettier. Node.js is used to run js outside of the web. Install Node.js NVM.
+-Install Node.js NVM. nvm Windows. 
+- 1 create a file.js in a folder  2 write js in vsc, console.log=print 3 in terminal node file.js => prints 
+- comments in js // and /* */
+- commenting is important, but not too much, ctrl + / automatically
+- var, let and const = variables. var=function scoped. let=block scoped {. const=block, cannot be changed
+- use let and const, let in loops
+- string concatenation = combining 2 or more strings. string ex let str1 = something
+- concatenation = +. obs! numbers. 1=number "1"=string
+- template literals makes writing simpler. use ${}
+- template literals use `...`
+- data types ex number, string, boolean, array and object osv.
+- array = [1,2,3,4]. typeof will give the data type ex one=1 typeof = number
+- use + - * /. ++ and -- by 1. use also ex Math.PI
+- % = remainder
+- numerical strings to numbers use parseInt() or parseFloat(). numbers to numerical strings use toString()
+- parseInt('100') = 100. NaN = not a number. (100).toString() = '100'
+- exception = interruption. use also try, catch and finally to help with errors
+- ex throw 'exception'. finally always runs
+- Date is the date and time. new Date() = right now.
+- .setMonth(0) = january. .getDay() = day now. 0=sunday
+- == checks data types. === equal values and data types. use ===. !== not equal. if (something) {does is something is true}
+- can be dones without {} if it is one line. also something = (status === 200) ? `ok` : `error`; in one line
+- ` ` and 0 = false. & = and | = or use && and ||.
+- obs check string is all upper or lower if compare. can also use switch () case 10: use break!! 
+- array = list or collections of values. 
+- arr1 = Array(length) . arr1.length prints length
+- first value in an array has the index 0. 
+- data can be added in an array after it is created. 
+- push and pop can add or remove a value from the end of an array. 
+- Shift and unshift does the same but in the front of the array.
+- loops while and for. remember to change the index. for ... of = for each c#
+- use for maybe more that while because can be written in one line. for of loop when list osv
+- funktions can execute different tasks, shortcut. obs return. parameters can help
+- function name(){execution in here}. print by name(); parameters in ()
+- arrow funktion => must be assigned a variable
+- add after a const, const add = (a, b) => a + b;, can create a block by {return}
+- JSON = javascript object notation. name value pairs, list of values. {a,b,c}
+- JSON.stringify(book) object to string. JSON.parse(data) data(string) to an object
+- JS objects are name value pairs that can be books, songs osv with authors, titels. this=runtime context.
+- can be created as written({title:"abc", author:"ml"}) or book = new Object( book.title ).
+- callback = setTimeout, waiting for other things to do their thing. calling after timeout.
+- Promise(resolve, reject). call resolve when success and reject when fail. catch when fail. then when success
+- async/await makes asynchronous code more synchronous. promise made async/await
+- async funktion needs a promise, then await the promise and return something like a promise. 
+- package is a reusable bundle of code. NPM has packages. packages makes code shorter. package.json
+- npm init makes a package.json file. devDependencies are packages that are important for the code to run. npm install name
+- next steps in github
