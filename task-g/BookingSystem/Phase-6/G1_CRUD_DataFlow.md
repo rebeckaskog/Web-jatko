@@ -95,7 +95,7 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: ?
+        B->>S: 
         S->>DB: UPDATE resources SET ...
         DB-->>S: Result / Duplicate error / Not found
 
