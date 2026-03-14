@@ -95,7 +95,7 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: 
+        B->>S: ?
         S->>DB: UPDATE resources SET ...
         DB-->>S: Result / Duplicate error / Not found
 
@@ -103,7 +103,7 @@ sequenceDiagram
             S-->>B: Duplicate detected
             B-->>F: 409 Conflict
             F-->>U: Show duplicate message
-        alt Not found
+        else Not found
             S-->>B: resource not found
             B-->>F: 404 Not found
             F-->>U: Show Not found message    
