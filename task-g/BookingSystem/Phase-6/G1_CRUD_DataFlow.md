@@ -47,9 +47,8 @@ sequenceDiagram
     participant S as Resource Service
     participant DB as PostgreSQL
 
-    U->>F: 
-    F->>F: 
-    F->>B: 
+    U->>F: ?
+    F->>B: ?
 
     B->>V: Validate request
     V-->>B: Validation result
@@ -58,9 +57,8 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: 
-        S->>DB: SELECT * FROM resources
-        S->>DB: SELECT * FROM resources WHERE id =...
+        B->>S: ?
+        S->>DB: SELECT * FROM resources / SELECT * FROM resources WHERE id =...
         DB-->>S: Result / Not found
 
         alt Not found
@@ -68,9 +66,9 @@ sequenceDiagram
             B-->>F: 404 Not found
             F-->>U: Show Not found message
         else Success
-            S-->>B: 
+            S-->>B: ?
             B-->>F: 200 ok
-            F-->>U: 
+            F-->>U: ?
         end
     end
 ```
@@ -97,7 +95,7 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: 
+        B->>S: ?
         S->>DB: UPDATE resources SET ...
         DB-->>S: Result / Duplicate error / Not found
 
@@ -129,8 +127,7 @@ sequenceDiagram
     participant DB as PostgreSQL
 
     U->>F: Submit delete form
-    F->>F: 
-    F->>B: 
+    F->>B: ?
 
     B->>V: Validate request
     V-->>B: Validation result
@@ -139,7 +136,7 @@ sequenceDiagram
         B-->>F: 400 Bad Request + errors[]
         F-->>U: Show validation message
     else Validation OK
-        B->>S: 
+        B->>S: ?
         S->>DB: DELETE FROM resources WHERE id =...
         DB-->>S: Result / Not found
 
