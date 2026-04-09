@@ -11,6 +11,10 @@ const statusField = document.getElementById("status");
 const actionsContainer = document.getElementById("reservationActions");
 const API_URL = "/api/reservations";
 
+if (!localStorage.getItem("token")) {
+    window.location.href = "/login";
+}
+
 function showMessage(text, type = "success"){
     messageBox.textContent = text;
     messageBox.classList.remove("hidden");
@@ -47,7 +51,9 @@ function clearForm(){
 
 async function loadReservations(){
     //console.log("luodaan resurssi listaus");
-    const res = await fetch(API_URL);
+    const res = await fetch(API_URL, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}
+    });
     const data = await res.json();
     //console.log(data.data);
     listContainer.innerHTML = "";
@@ -81,7 +87,7 @@ async function loadReservations(){
 async function createReservation(payload){
     const res = await fetch(API_URL, {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}`},
         body: JSON.stringify(payload),
     });
     if (!res.ok) throw new Error("Failed to create reservation");
@@ -90,14 +96,17 @@ async function createReservation(payload){
 async function updateReservation(id, payload){
     const res = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}`},
         body: JSON.stringify(payload),
     });
     if (!res.ok) throw new Error("Failed to update reservation");
 }
 
 async function deleteReservation(id){
-    const res = await fetch(`${API_URL}/${id}`, { method: "DELETE"});
+    const res = await fetch(`${API_URL}/${id}`, { 
+        method: "DELETE", 
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}`}
+    });
     if (!res.ok) throw new Error("Failed to delete reservation");
 }
 
@@ -157,10 +166,10 @@ function renderActions(mode){
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const payload = {
-        resource_id: Number(resourceIdField.value),
-        user_id: Number(userIdField.value),
-        start_time: toISO(startTimeField.value),
-        end_time: toISO(endTimeField.value),
+        resourceId: Number(resourceIdField.value),
+        userId: Number(userIdField.value),
+        startTime: toISO(startTimeField.value),
+        endTime: toISO(endTimeField.value),
         note: noteField.value,
         status: statusField.value,
         };

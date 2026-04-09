@@ -50,11 +50,11 @@
                 </a>
                 <nav class="flex items-center gap-3">
                     <a href="/resources" data-auth="user"
-                        class="res-link rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 w-40 text-center cursor-not-allowed pointer-events-none">
+                        class="res-link rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 w-40 text-center">
                         Resources
                     </a>
                     <a href="/reservations" data-auth="user"
-                        class="res-link rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 w-40 text-center cursor-not-allowed pointer-events-none">
+                        class="res-link rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 w-40 text-center">
                         Reservations
                     </a>
                     <a href="/register" data-auth="guest" class="auth-link rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 w-40 text-center">
@@ -71,7 +71,7 @@
         </div>
     </header>
 
-    <main id="mainContent" class="mx-auto max-w-7xl px-6 flex-grow">
+    <main id="mainContent" class="mx-auto max-w-7xl px-6 flex-grow" data-auth-required="true">
 
         <!-- Page header -->
         <section class="py-12">
@@ -117,17 +117,17 @@
 
                             <div class="grid gap-6 lg:grid-cols-2">
                                 <div>
-                                    <label for="start" class="block text-sm font-semibold">Start date</label>
+                                    <label for="startTime" class="block text-sm font-semibold">Start date</label>
                                     <input id="startTime" type="datetime-local" required class="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-5 text-sm outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/30" />
                                 </div>
                                 <div>
-                                    <label for="end" class="block text-sm font-semibold">End date</label>
+                                    <label for="endTime" class="block text-sm font-semibold">End date</label>
                                     <input id="endTime" type="datetime-local" required class="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-5 text-sm outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/30" />
                                 </div>
                             </div>
                             
                             <div>
-                                <lable class="block text-sm font-semibold">Note</lable>
+                                <label class="block text-sm font-semibold">Note</label>
                                 <input id="note" type="text" class="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/30" />
                             </div>
 
